@@ -60,11 +60,9 @@ CREATE TABLE `running_balance` (
   `category_id` int(30) NOT NULL,
   `amount` float NOT NULL,
   `remarks` text NOT NULL,
-  `user_id` int(30) NOT NULL,
+  `user_id` text NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
-  `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`), -- Defining primary key
-  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) -- Defining foreign key
+  `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -115,7 +113,7 @@ INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(30) NOT NULL,
+  `id` int(50) NOT NULL,
   `firstname` varchar(250) NOT NULL,
   `lastname` varchar(250) NOT NULL,
   `username` text NOT NULL,
